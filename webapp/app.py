@@ -18,7 +18,7 @@ parser.add_argument('--aws_region', required=True, help='AWS region')
 args = parser.parse_args()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = args.secret_key
+# app.config['SECRET_KEY'] = args.secret_key
 app.config['MONGO_URI'] = args.mongo_uri
 app.config['S3_BUCKET'] = args.s3_bucket
 # app.config['AWS_ACCESS_KEY'] = args.aws_access_key
