@@ -57,6 +57,7 @@ def index():
         return redirect(url_for('index'))
 
     photos = s3.list_objects_v2(Bucket=app.config['S3_BUCKET']).get('Contents', [])
+    print(f'photos: {photos}')
     photo_urls = [
         f"https://{app.config['S3_BUCKET']}.s3.{app.config['AWS_REGION']}.amazonaws.com/{photo['Key']}" for photo in photos
     ]
