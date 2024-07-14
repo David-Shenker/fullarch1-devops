@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Student Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="mt-5">Student Data Form</h1>
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                {{ form.name.label(class="form-control-label") }}
+                {{ form.name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.student_id.label(class="form-control-label") }}
+                {{ form.student_id(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.course.label(class="form-control-label") }}
+                {{ form.course(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-primary") }}
+            </div>
+        </form>
+        <h2 class="mt-5">Student Photos</h2>
+        <div class="row">
+            {% for url in photo_urls %}
+            <div class="col-md-3">
+                <img src="{{ url }}" class="img-thumbnail" alt="Student Photo">
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+
+</html>
