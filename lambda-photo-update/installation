@@ -1,0 +1,30 @@
+Create pymongo Layer
+
+mkdir python
+pip install pymongo -t python/
+zip -r pymongo-layer.zip python
+
+Upload the Layer
+
+----------------
+
+add environment variables:
+
+DB_NAME = photos
+MONGO_HOST = 10.0.1.110
+MONGO_PASS = password
+MONGO_PORT = 27017
+MONGO_USER = root
+
+-----------------
+
+Timeout - 2 min
+
+-----------------
+
+Add trigger.
+go to s3 -> Properties -> Event notifications
+
+-----------------
+
+Add lambda to VPC

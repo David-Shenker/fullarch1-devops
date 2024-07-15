@@ -1,0 +1,31 @@
+vim /etc/yum.repos.d/mongodb-org-7.0.repo
+
+
+[mongodb-org-7.0]
+name=MongoDB Repository
+baseurl=https://repo.mongodb.org/yum/amazon/2023/mongodb-org/7.0/x86_64/
+gpgcheck=1
+enabled=1
+gpgkey=https://pgp.mongodb.com/server-7.0.asc
+
+
+
+sudo yum install -y mongodb-org
+
+sudo yum install -y cronie
+sudo systemctl start crond
+sudo systemctl enable crond
+
+crontab -e
+
+* * * * * /home/ec2-user/mongo-backup.sh -h 'localhost' -u 'root' -p 'password' -b 'mongo-backup-davshe' -o '/home/ec2-user' >> /home/ec2-user/mongodump.log 2>&1
+
+vim mongo-backup.sh
+
+chmod +x mongo-backup.sh
+
+usage:
+    /home/ec2-user/mongo-backup.sh -h 'localhost' -u 'root' -p 'password' -b 'mongo-backup-davshe' -o '/home/ec2-user'
+
+
+

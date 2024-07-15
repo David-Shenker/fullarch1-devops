@@ -1,0 +1,22 @@
+sudo vim /etc/systemd/system/flask_app.service
+
+[Unit]
+Description=A simple Flask app
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/home/ec2-user/fullarch1-devops/webapp
+ExecStart=/usr/bin/python3 app.py --mongo_uri 'mongodb://root:password@10.0.1.110:27017' --s3_bucket myapp-photos-davshe --aws_region us-east-1 --secret_key 1123581321
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl daemon-reload
+sudo systemctl start flask_app
+sudo systemctl enable flask_app
+
+
+systemctl status flask_app.service
