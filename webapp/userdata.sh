@@ -7,6 +7,7 @@ git clone https://github.com/David-Shenker/fullarch1-devops.git
 
 cd fullarch1-devops/webapp
 
-python3 app.py --mongo_uri your_mongodb_uri \
+python3 app.py --mongo_uri 'mongodb://root:password@3.218.164.166:27017' \
               --s3_bucket myapp-photos-davshe \
-              --aws_region us-east-1
+              --aws_region us-east-1 \
+              --secret_key 123123123

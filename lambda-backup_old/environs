@@ -1,0 +1,3 @@
+MONGO_URI=mongodb://root:password@3.218.164.166:27017
+MONGO_DB=student_db
+S3_BUCKET=mongo-backup-devops1
