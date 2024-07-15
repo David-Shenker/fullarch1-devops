@@ -10,10 +10,9 @@ gpgkey=https://pgp.mongodb.com/server-7.0.asc
 
 
 
-sudo yum install -y mongodb-org
-
-sudo yum install -y cronie
-sudo systemctl start crond
+sudo yum install -y mongodb-org ;\
+sudo yum install -y cronie ;\
+sudo systemctl start crond ;\
 sudo systemctl enable crond
 
 crontab -e
